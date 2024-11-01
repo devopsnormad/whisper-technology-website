@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-import { RiArrowDownSLine } from "react-icons/ri";
+import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri"; // Import the up arrow icon
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -42,13 +42,13 @@ const Header = () => {
         isScrolled ? "shadow-lg backdrop-filter backdrop-blur-lg" : ""
       }`}
     >
-      <div className="flex px-10 items-center justify-between">
+      <div className="flex px-5 items-center justify-between">
         {/* Logo on the left */}
         <div className="flex items-center gap-2">
-          <h1 className="text-lg md:text-2xl font-bold text-gray-700">
+          <h1 className="text-sm sm:text-lg md:text-2xl font-bold text-gray-700">
             WHISPER
           </h1>
-          <h1 className="text-lg md:text-2xl font-bold text-cyan-500">
+          <h1 className="text-sm sm:text-lg md:text-2xl font-bold text-cyan-500">
             TECHNOLOGY
           </h1>
         </div>
@@ -68,11 +68,11 @@ const Header = () => {
                 onClick={toggleAboutUsDropdown}
                 className=" flex items-center gap-2 focus:outline-none hover:text-gray-500"
               >
-                About 
-                <RiArrowDownSLine />
+                Company
+                {aboutUsOpen ? <RiArrowUpSLine /> : <RiArrowDownSLine />} {/* Toggle arrow direction */}
               </button>
               {aboutUsOpen && (
-                <div className="absolute bg-white text-black shadow-lg mt-2 rounded-md w-40">
+                <div className="absolute bg-white text-black shadow-lg mt-2 rounded-md w-80">
                   <Link to="/history" className="block px-4 py-2 hover:bg-gray-200">
                     History
                   </Link>
@@ -91,15 +91,15 @@ const Header = () => {
                 className=" flex items-center gap-2 focus:outline-none hover:text-gray-500"
               >
                 Services
-                <RiArrowDownSLine />
+                {servicesOpen ? <RiArrowUpSLine /> : <RiArrowDownSLine />} {/* Toggle arrow direction */}
               </button>
               {servicesOpen && (
-                <div className="absolute bg-white text-black shadow-lg mt-2 rounded-md w-40">
+                <div className="absolute bg-white text-black shadow-lg mt-2 rounded-md w-80">
                   <Link to="/whatwedo" className="block px-4 py-2 hover:bg-gray-200">
                     What we do
                   </Link>
                   <Link to="/portfolio" className="block px-4 py-2 hover:bg-gray-200">
-                    Portfolio
+                    Products
                   </Link>
                 </div>
               )}
@@ -132,7 +132,7 @@ const Header = () => {
                 className="text-white  flex items-center gap-2 focus:outline-none hover:text-gray-500"
               >
                 About Us
-                <RiArrowDownSLine />
+                {aboutUsOpen ? <RiArrowUpSLine /> : <RiArrowDownSLine />} {/* Toggle arrow direction */}
               </button>
               {aboutUsOpen && (
                 <div className="bg-gray-800 mt-2 rounded-md">
@@ -154,7 +154,7 @@ const Header = () => {
                 className="text-white flex items-center gap-2 focus:outline-none hover:text-gray-500"
               >
                 Services
-                <RiArrowDownSLine />
+                {servicesOpen ? <RiArrowUpSLine /> : <RiArrowDownSLine />} {/* Toggle arrow direction */}
               </button>
               {servicesOpen && (
                 <div className="bg-gray-800 mt-2 rounded-md">
